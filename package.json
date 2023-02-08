@@ -4,7 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "full-regression-headed-chrome": "cypress run --headed --browser chrome --spec 'cypress/e2e/*.feature'",
+    "full-regression-headless-chrome": "cypress run --browser chrome --spec 'cypress/e2e/*.feature'",
+    "contact-us-tests-headed-chrome": "cypress run --headed --browser chrome --spec 'cypress/e2e/Contact_Us.feature'",
+    "contact-us-headed": "cypress run -e TAGS=\"@login\" --headed",
+    "contact-us-headless": "cypress run -e TAGS=\"@login\"",
+    "contact-us-headed-except@login": "cypress run -e TAGS=\"@regression and not @login\" --headed",
+    "regression-except@smoke": "cypress run -e TAGS=\"@regression and not @smoke\" --headed"
+
+
+
   },
   "author": "",
   "license": "ISC",
@@ -18,6 +28,10 @@
     "ts-loader": "^9.4.2"
   },
   "cypress-cucumber-preprocessor": {
-    "stepDefinition": "cypress/support/step_definitions/**/*.js"
+    "stepDefinition": "cypress/support/step_definitions/**/*.js",
+    "html": {
+      "enabled": true,
+      "output": "cypress/reports/cucumber-html/cucumber-report.html"
+    }
   }
 }

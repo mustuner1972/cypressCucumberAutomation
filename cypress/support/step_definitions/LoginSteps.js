@@ -34,7 +34,7 @@ Then ('I click on the login button and should be presented with a fail message',
     {expect(AlertText).eql('validation failed') 
 })
 })
-Then ('I click on the username box and type {word}', (userName)=>
+Then ('I click on the username box and type {string}', (userName)=>
 {
     cy.get("input[type='text']").type(userName) 
 

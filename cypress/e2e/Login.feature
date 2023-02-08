@@ -1,3 +1,4 @@
+@regression
 Feature: WebdriverUniversity - Login feature
 
     Scenario: Valid login scenario
@@ -14,14 +15,19 @@ Feature: WebdriverUniversity - Login feature
         And I click on the password box and type invalid password
         And I click on the login button and should be presented with a fail message
 
+    @smoke
     Scenario Outline: Vlaidate Login Page
         Given I navigate to the webdriveruniversity homepage
         When I click on the login button
-        And I click on the username box and type <userName>
+        And I click on the username box and type '<userName>'
         And I click on the password box and type <password>
         And I click on the login button and should be presented with a '<message>'
+        # Then I should be presented with a '<message>' can also be used. (since it is an assertion)
 
         Examples:
-            | userName  | password     | message              |
-            | webdriver | webdriver123 | validation succeeded |
-            | webdriver | webdriver1   | validation failed    |
+            | userName   | password     | message              |
+            | webdriver  | webdriver123 | validation succeeded |
+            | webdriver  | webdriver1   | validation failed    |
+            | webdrive   | webdriver123 | validation failed    |
+            | webdrive   | webdriver1   | validation failed    |
+            | web driver | webdriver1   | validation failed    |

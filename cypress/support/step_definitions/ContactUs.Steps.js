@@ -67,6 +67,7 @@ import { When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
     Then ('I should be presented with header text {string}', (message) =>
 {
+    // checking 2 different messages from 2 different dom elements
     // cy.get('body').then((body) => {
     //     if (body.find('div[id="contact_reply"]').length > 0) {
     //         cy.get('div[id="contact_reply"]').contains(message)
@@ -75,6 +76,8 @@ import { When, Then } from "@badeball/cypress-cucumber-preprocessor";
     //         cy.get('body').contains(message)
       //  }
    // })
+   //  OR use xpath
+
    cy.xpath('//h1 | //body').contains(message) 
 
 })
