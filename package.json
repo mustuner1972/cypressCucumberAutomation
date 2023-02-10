@@ -8,13 +8,12 @@
     "full-regression-headed-chrome": "cypress run --headed --browser chrome --spec 'cypress/e2e/*.feature'",
     "full-regression-headless-chrome": "cypress run --browser chrome --spec 'cypress/e2e/*.feature'",
     "contact-us-tests-headed-chrome": "cypress run --headed --browser chrome --spec 'cypress/e2e/Contact_Us.feature'",
-    "contact-us-headed": "cypress run -e TAGS=\"@login\" --headed",
-    "contact-us-headless": "cypress run -e TAGS=\"@login\"",
+    "contact-us-headed": "cypress run -e TAGS=\"@login\" --headed && node cucumber-html-report.js",
+    "contact-us-headless": "cypress run -e TAGS=\"@login\" && node cucumber-html-report.js",
     "contact-us-headed-except@login": "cypress run -e TAGS=\"@regression and not @login\" --headed",
-    "regression-except@smoke": "cypress run -e TAGS=\"@regression and not @smoke\" --headed"
-
-
-
+    "regression-except@smoke": "cypress run -e TAGS=\"@regression and not @smoke\" --headed && node cucumber-html-report.js",
+    "login-@smoke" : "cypress run -e TAGS=\"@smoke\" --headed",
+    "login-@smokes" : "cypress run -e TAGS=\"@smoke\" && node cucumber-html-report.js"
   },
   "author": "",
   "license": "ISC",
@@ -24,7 +23,9 @@
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^15.1.2",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
+    "cypress-cucumber-attach-screenshots-to-failed-steps": "^1.0.0",
     "cypress-xpath": "^2.0.1",
+    "multiple-cucumber-html-reporter": "^3.1.0",
     "ts-loader": "^9.4.2"
   },
   "cypress-cucumber-preprocessor": {
@@ -32,6 +33,11 @@
     "html": {
       "enabled": true,
       "output": "cypress/reports/cucumber-html/cucumber-report.html"
+    },
+    "json": {
+      "enabled": true,
+      "formatter": "cucumber-json-formatter",
+      "output": "cypress/reports/cucumber-json/cucumber-report.json"
     }
   }
 }

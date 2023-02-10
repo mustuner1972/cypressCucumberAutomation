@@ -16,7 +16,7 @@ Feature: WebdriverUniversity - Login feature
         And I click on the login button and should be presented with a fail message
 
     @smoke
-    Scenario Outline: Vlaidate Login Page
+    Scenario Outline: Validate Login Page
         Given I navigate to the webdriveruniversity homepage
         When I click on the login button
         And I click on the username box and type '<userName>'

@@ -31,7 +31,7 @@ Then ('I click on the login button and should be presented with a fail message',
 {
     cy.get("#login-button").click()
     cy.on('window:alert',function(AlertText) // for alert type
-    {expect(AlertText).eql('validation failed') 
+    {expect(AlertText).eql('validation failed11') 
 })
 })
 Then ('I click on the username box and type {string}', (userName)=>
