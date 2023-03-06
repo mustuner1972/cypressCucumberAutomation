@@ -12,7 +12,7 @@
     "contact-us-headless": "cypress run -e TAGS=\"@login\" && node cucumber-html-report.js",
     "contact-us-headed-except@login": "cypress run -e TAGS=\"@regression and not @login\" --headed",
     "regression-except@smoke": "cypress run -e TAGS=\"@regression and not @smoke\" --headed && node cucumber-html-report.js",
-    "login-@smoke" : "cypress run -e TAGS=\"@smoke\" --headed",
+    "login-@smoke" : "cypress run -e TAGS=\"@smoke\" --headed && node cucumber-html-report.js",
     "login-@smokes" : "cypress run -e TAGS=\"@smoke\" && node cucumber-html-report.js"
   },
   "author": "",

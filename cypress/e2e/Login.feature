@@ -8,6 +8,7 @@ Feature: WebdriverUniversity - Login feature
         And I click on the password box and type valid password
         And I click on the login button and should be presented with an popup message
 
+    @invalid
     Scenario: Invalid login scenario
         Given I navigate to the webdriveruniversity homepage
         When I click on the login button
@@ -28,6 +29,6 @@ Feature: WebdriverUniversity - Login feature
             | userName   | password     | message              |
             | webdriver  | webdriver123 | validation succeeded |
             | webdriver  | webdriver1   | validation failed    |
-            | webdrive   | webdriver123 | validation failed    |
+            | merhaba    | webdriver123 | validation failed    |
             | webdrive   | webdriver1   | validation failed    |
             | web driver | webdriver1   | validation failed    |
